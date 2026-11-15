@@ -1,0 +1,8 @@
+{
+    "regions": {
+        "North": 300,
+        "South": 200,
+        "West": 200
+    },
+    "overall_total": 700
+}

@@ -1,0 +1,22 @@
+task:
+  id: sales-summary-002
+  title: Generate a Sales Summary
+
+  statement: |
+    You are given a file named sales.csv containing sales records.
+
+    Produce a file named summary.json that reports:
+    - The total sales amount for each region.
+    - The overall total sales amount.
+
+    Regional entries must be ordered alphabetically by region.
+    The output must contain valid JSON and the calculated totals
+    must be accurate.
+
+  environment:
+    input_file: sales.csv
+    output_file: summary.json
+
+  difficulty:
+    level: Medium
+    note: Requires interpreting tabular data and producing an accurate summary.

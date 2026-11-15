@@ -1,0 +1,31 @@
+
+task:
+  id: normalize-text-001
+  title: Fix Text Normalization in Python
+
+  statement: |
+    The normalize_tag() function in tag_utils.py
+    does not correctly standardize text labels.
+
+    Fix the function to satisfy these requirements:
+
+    1. Convert all characters to lowercase.
+    2. Remove leading and trailing whitespace.
+    3. Remove punctuation characters.
+    4. Replace one or more spaces between words
+       with a single hyphen.
+    5. Return the normalized string.
+
+    Examples:
+      "Python Programming" -> "python-programming"
+      " Hello World " -> "hello-world"
+      "Web Development!" -> "web-development"
+
+  environment:
+    language: Python
+    version: "3.10"
+    file: tag_utils.py
+
+  difficulty:
+    level: Easy
+    note: Requires basic Python string manipulation.

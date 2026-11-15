@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adzzat Labs - Task Marketplace</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Adzzat Labs</h1>
+        <h2>Full-Stack Software Engineer Assignment</h2>
+
+        <p>Welcome to our Coding Task Marketplace!</p>
+
+        <div id="tasks">Loading tasks...</div>
+    </div>
+
+    <script>
+        fetch('/api/tasks')
+            .then(response => response.json())
+            .then(tasks => {
+                const container = document.getElementById('tasks');
+                container.innerHTML = '';
+
+                tasks.forEach(task => {
+                    container.innerHTML += `
+                        <div class="task-card">
+                            <h3>${task.title}</h3>
+                            <p>${task.type}</p>
+                            <p>Difficulty: ${task.difficulty}</p>
+                            <p>${task.difficulty_note}</p>
+                            <a href="/tasks/${task.id}">View Task Details →</a>
+                        </div>
+                    `;
+                });
+            })
+            .catch(error => {
+                document.getElementById('tasks').innerText =
+                    'Unable to load tasks.';
+                console.error(error);
+            });
+    </script>
+
+</body>
+</html>
